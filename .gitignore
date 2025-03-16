@@ -1,21 +1,22 @@
-# Исключаем системные файлы
+# MacOS
 .DS_Store
 Thumbs.db
 
-# Игнорируем зависимости и сборку (если используешь Node.js, Python или другие языки)
+# NodeJS, Python
 node_modules/
 venv/
 dist/
 
-# Файлы редакторов и IDE
+# IDE, environment
+.astro/
 .idea/
 .vscode/
 *.swp
 
-# Логи и временные файлы
+# Temporary and Log files
 *.log
 *.tmp
 *.bak
 
-# Файлы настроек системы
+# Environment files
 .env

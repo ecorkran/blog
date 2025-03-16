@@ -10,12 +10,15 @@ const { title, description, image, slug } = Astro.props;
 ---
 
 <article class="bento-item">
-  <div class="content">
-    <h2><a href={`/blog/${slug}`}>{title}</a></h2>
-    <p>{description}</p>
-  </div>
-  {image && <div class="image-overlay" style={`background-image: url(${image})`} />}
+  <a href={`/blog/${slug}`} class="card-link">
+    {image && <div class="image-overlay" style={`background-image: url(${image})`} />}
+    <div class="content">
+      <h2>{title}</h2>
+      <p>{description}</p>
+    </div>
+  </a>
 </article>
+
 
 <style>
   article {
@@ -24,6 +27,8 @@ const { title, description, image, slug } = Astro.props;
     grid-column: span 2;
     grid-row: span 2;
     aspect-ratio: 1;
+    padding: 0 !important;
+    border-radius: 1.5rem;
   }
 
   .image-overlay {
@@ -34,35 +39,51 @@ const { title, description, image, slug } = Astro.props;
     bottom: 0;
     background-size: cover;
     background-position: center;
-    opacity: 0.15;
-    transition: opacity 0.3s ease;
+    border-radius: 1.5rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 0;
   }
 
   article:hover .image-overlay {
-    opacity: 0.25;
+    opacity: 0.9;
+    transform: scale(1.02);
   }
 
   .content {
-    position: relative;
+    position: absolute;
     z-index: 1;
-    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 1.5rem;
+    backdrop-filter: blur(3px);
   }
 
   h2 {
     margin: 0;
     font-size: 1.25rem;
     font-weight: 600;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   }
 
-  a {
+  .card-link {
     color: inherit;
     text-decoration: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    border-radius: 1.5rem;
   }
 
-  a:hover {
+  h2:hover {
     color: var(--accent-color);
   }
 
@@ -70,6 +91,7 @@ const { title, description, image, slug } = Astro.props;
     margin: 0.5rem 0 0;
     line-height: 1.5;
     flex-grow: 1;
-    opacity: 0.8;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   }
 </style>
