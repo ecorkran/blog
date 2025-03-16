@@ -1,0 +1,50 @@
+manta-blog/
+├── .astro/
+│   └── types.d.ts
+├── .gitignore
+├── README.md
+├── astro.config.mjs
+├── package-lock.json
+├── package.json
+├── public/
+│   ├── content/
+│   │   └── image/
+│   └── image/
+│       ├── gpt4g-bonfire-gem.png
+│       ├── gpt4g-bonfire-gpt.png
+│       ├── gpt4g-flights-gem.png
+│       ├── gpt4g-flights-gpt.png
+│       ├── gpt4g-math-gem-1.png
+│       ├── gpt4g-math-gem-2.png
+│       ├── gpt4g-math-gem-3.png
+│       ├── gpt4g-math-gem-4.png
+│       ├── gpt4g-math-gem-5.png
+│       ├── gpt4g-math-gem-6.png
+│       ├── gpt4g-math-gem-7.png
+│       ├── gpt4g-math-gpt-1.png
+│       ├── gpt4g-math-gpt-2.png
+│       ├── gpt4g-math-gpt-3.png
+│       ├── gpt4g-math-gpt-4.png
+│       ├── gpt4g-math-gpt-5.png
+│       ├── gpt4g-math-gpt-6.png
+│       ├── gpt4g-math-gpt-7.png
+│       ├── gpt4g-wget-gem.png
+│       ├── gpt4g-wget-gpt.png
+│       ├── python-macos-1.png
+│       ├── python-venv-1.png
+│       ├── python-venv-2.png
+│       └── singularity-1.png
+├── src/
+│   ├── components/
+│   │   └── BentoCard.astro
+│   ├── content/
+│   │   └── blog/
+│   │       ├── gpt4-vs-gemini.md
+│   │       ├── python-macos.md
+│   │       ├── python-virtual-environments.md
+│   │       └── singularity.md
+│   └── pages/
+│       ├── blog/
+│       │   └── [slug].astro
+│       └── index.astro
+└── tsconfig.json
