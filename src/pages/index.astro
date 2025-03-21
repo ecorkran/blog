@@ -1,19 +1,51 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import BentoCard from '../components/BentoCard.astro';
+import WideCard from '../components/WideCard.astro';
+import TextCard from '../components/TextCard.astro';
 import { getCollection } from 'astro:content';
 
 const posts = await getCollection('blog');
 posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+
+// Simple layout algorithm: first post gets WideCard, every 3rd post gets TextCard
+const getCardType = (index: number) => {
+  if (index === 0) return 'wide';
+  if (index % 3 === 0) return 'text';
+  return 'bento';
+};
 ---
 
 <Layout title="Bento Blog">
-  {posts.map(post => (
-    <BentoCard
-      title={post.data.title}
-      description={post.data.description}
-      image={post.data.image}
-      slug={post.slug}
-    />
-  ))}
+  {posts.map((post, index) => {
+    const cardType = getCardType(index);
+    
+    if (cardType === 'wide') {
+      return (
+        <WideCard
+          title={post.data.title}
+          description={post.data.description}
+          image={post.data.image}
+          slug={post.slug}
+        />
+      );
+    } else if (cardType === 'text') {
+      return (
+        <TextCard
+          title={post.data.title}
+          subtitle={post.data.description}
+          slug={post.slug}
+        />
+      );
+    } else {
+      return (
+        <BentoCard
+          title={post.data.title}
+          description={post.data.description}
+          image={post.data.image}
+          slug={post.slug}
+        />
+      );
+    }
+  })}
 </Layout>
