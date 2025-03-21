@@ -3,3 +3,5 @@
 - Added TallCard component for vertical card layout spanning 3 rows in the grid.
 - Created AboutCard component that displays content from about.md in the intro collection.
 - Updated layout algorithm to show first blog post as the first card, AboutCard as the second card, followed by more blog posts in a specific order.
+- Completely revised responsive design for WideCard with consistent padding, proper text alignment, and improved readability on mobile devices.
+- Fixed overflow issues in WideCard by adding vertical centering, removing unnecessary margins, and preventing content from extending beyond card boundaries.

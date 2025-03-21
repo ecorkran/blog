@@ -1,5 +1,5 @@
 ---
-title: "The Singularity is Nearer — A Reviewv"
+title: "The Singularity is Nearer — A Review"
 description: "Ray Kurzweil’s Optimistic Vision of the Future, Consciousness, and AI’s Next Steps."
 image: "/image/singularity-1.png"
 pubDate: 2024-10-01
