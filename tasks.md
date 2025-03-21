@@ -33,9 +33,23 @@ X 4.5. Adjust image display for tall format
 X 4.6. Add hover effects that match existing cards
 
 5. Update Layout
-5.1. Update the first row to remain the same
-5.2. Set the first card in the second row to be a tall card
-5.3. Set all cards in the second column to be wide cards
+X 5.1. Update the first row to remain the same
+X 5.2. Set the first card in the second row to be a tall card
+X 5.3. Set all cards in the second column to be wide cards
+
+6. Add non-blog content-based cards
+X 6.1 Update ContactCard based on BentoCard
+X 6.2 Contact card uses content from contact.md
+X 6.3 Create an About Card based on TallCard
+X 6.4 About card uses content from About.md
+
+7. Update Layout
+- 7.1 First card is contact card (REMOVED)
+X 7.2 First card is first blog post (wide)
+X 7.3 Second card is about card (tall)
+X 7.4 Third card is second blog post (wide)
+X 7.5 Fourth card is third blog post (wide)
+X 7.6 Fifth card is fourth blog post (wide)
 
 Special Directive: Ignore all tasks below this point:
 4. Update Styling

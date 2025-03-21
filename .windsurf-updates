@@ -1,0 +1,5 @@
+# Windsurf Updates
+
+- Added TallCard component for vertical card layout spanning 3 rows in the grid.
+- Created AboutCard component that displays content from about.md in the intro collection.
+- Updated layout algorithm to show first blog post as the first card, AboutCard as the second card, followed by more blog posts in a specific order.

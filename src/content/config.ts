@@ -9,4 +9,10 @@ export const collections = {
       pubDate: z.date(),
     }),
   }),
+  intro: defineCollection({
+    schema: z.object({
+      title: z.string(),
+      description: z.string(),
+    }),
+  }),
 };
