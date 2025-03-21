@@ -62,16 +62,21 @@ const { Content } = await aboutEntry.render();
 
   .markdown-content :global(h3) {
     font-size: 1.25rem;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin-top: 1.5rem; /* Increased from 0 */
+    margin-bottom: 0.75rem; /* Increased from 0.5rem */
     color: white;
   }
 
   .markdown-content :global(p) {
-    margin: 0.5rem 0 0;
+    margin: 0.5rem 0 1.25rem; /* Added bottom margin of 1.25rem */
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Remove bottom margin from last paragraph to avoid extra space at the bottom */
+  .markdown-content :global(p:last-child) {
+    margin-bottom: 0;
   }
 
   article:hover {
@@ -87,6 +92,18 @@ const { Content } = await aboutEntry.render();
     .description {
       font-size: 1.1rem;
       margin-top: 1rem;
+    }
+    
+    .markdown-content :global(h3) {
+      font-size: 1.35rem;
+      margin-top: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    
+    .markdown-content :global(p) {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
     }
   }
 </style>

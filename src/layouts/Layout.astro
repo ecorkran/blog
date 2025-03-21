@@ -1,9 +1,10 @@
 ---
 interface Props {
   title: string;
+  isBlogPost?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, isBlogPost = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,13 +18,11 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <main class="bento-grid">
-      <div class="bento-item logo-block">
-        <a href="/" class="logo-link">
-          <h1>Erik Corkran</h1>
-          <p>A work in progress blog page</p>
-        </a>
-      </div>
+    <main class={`bento-grid ${isBlogPost ? 'blog-post-grid' : ''}`}>
+      <a href="/" class="bento-item logo-block">
+        <h1>Erik Corkran &mdash; Blog</h1>
+        <p>A blog site barely past "placeholder" status</p>
+      </a>
       <slot />
     </main>
   </body>
@@ -76,7 +75,26 @@ const { title } = Astro.props;
     background: rgba(255, 255, 255, 0.15);
   }
 
-  .logo-block {
+    .blog-post-grid {
+    grid-template-columns: 1fr !important; /* Single column for blog posts */
+    max-width: 800px !important; /* Limit width for better readability */
+    margin: 0 auto; /* Center the grid */
+    width: 100%; /* Ensure the grid takes up available width */
+    display: grid; /* Reinforce grid display */
+    justify-items: center; /* Center grid items horizontally */
+  }
+    
+  /* For blog posts, make the logo block match the post content width and ensure it's centered */
+  .blog-post-grid .logo-block {
+    grid-column: 1 / -1 !important;
+    width: 100%; /* Set width to 100% of its grid cell */
+    max-width: 800px; /* Match the max-width of the blog post content */
+    box-sizing: border-box; /* Include padding in width calculation */
+    justify-self: center; /* Center the block in its grid cell */
+    margin: 0 auto; /* Additional centering with auto margins */
+  }
+
+    .logo-block {
     grid-column: span 2;
     grid-row: span 1;
     background: linear-gradient(135deg, rgba(124, 58, 237, 0.8), rgba(37, 99, 235, 0.8));
@@ -84,16 +102,14 @@ const { title } = Astro.props;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-decoration: none; /* Remove underline from link */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.2s ease;
   }
 
-  .logo-link {
-    text-decoration: none;
-    color: inherit;
-    transition: opacity 0.2s ease;
-  }
-
-  .logo-link:hover {
-    opacity: 0.9;
+  .logo-block:hover {
+    opacity: 0.95;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.3);
   }
 
   .logo-block h1 {
@@ -104,6 +120,16 @@ const { title } = Astro.props;
   .logo-block p {
     font-size: 1rem;
     margin: 0.5rem 0 0;
+    opacity: 0.9;
+  }
+
+  .logo-link {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+  }
+
+  .logo-link:hover {
     opacity: 0.9;
   }
 
@@ -135,6 +161,33 @@ const { title } = Astro.props;
     .bento-item {
       grid-column: 1 / -1 !important; /* Span all columns */
       grid-row: auto !important; /* Let the grid determine row height */
+      order: 10; /* Default order for blog posts */
+    }
+    
+    /* Logo block (first item) gets order 1 */
+    .logo-block {
+      order: 1;
+    }
+    
+    /* About card (3rd item in original layout) gets order 2 */
+    .bento-item:nth-child(3) {
+      order: 2;
+    }
+      /* Set incremental order for blog post cards */
+      .bento-item:nth-child(2) {
+      order: 3;
+    }
+    
+    .bento-item:nth-child(4) {
+      order: 4;
+    }
+    
+    .bento-item:nth-child(5) {
+      order: 5;
+    }
+    
+    .bento-item:nth-child(6) {
+      order: 6;
     }
   }
 

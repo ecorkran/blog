@@ -14,7 +14,7 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Layout title={post.data.title}>
+<Layout title={post.data.title} isBlogPost={true}>
   <article class="bento-item post-content">
     {post.data.image && (
       <div class="image-container">
@@ -30,12 +30,13 @@ const { Content } = await post.render();
 
 <style>
   .post-content {
-    grid-column: 3 / -1;
-    grid-row: 1 / span 3;
+    grid-column: 1 / -1; /* Span the full width */
     display: flex;
     flex-direction: column;
     gap: 2rem;
     min-height: 600px;
+    max-width: 800px; /* Limit the content width */
+    margin: 0 auto; /* Center the content */
   }
 
   .image-container {

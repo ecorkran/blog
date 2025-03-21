@@ -42,6 +42,7 @@ const { title, subtitle, slug } = Astro.props;
     font-weight: 600;
     color: white;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.75rem; /* Added bottom margin */
   }
 
   .card-link {
@@ -59,7 +60,7 @@ const { title, subtitle, slug } = Astro.props;
   }
 
   p {
-    margin: 0.5rem 0 0;
+    margin: 0; /* Remove default margins and set explicitly */
     line-height: 1.5;
     flex-grow: 1;
     color: rgba(255, 255, 255, 0.9);
@@ -68,5 +69,17 @@ const { title, subtitle, slug } = Astro.props;
 
   article:hover {
     background: linear-gradient(135deg, rgba(70, 70, 80, 0.7), rgba(40, 40, 50, 0.7));
+  }
+  
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.85rem;
+    }
+    
+    p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
   }
 </style>
