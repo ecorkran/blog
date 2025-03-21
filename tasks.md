@@ -25,12 +25,12 @@ X 3.4. Add test rendering of the new components with sample content
 X 3.5. Ensure all components appear in the right order and position
 
 4. Create Tall Card
-4.1. Create a new file TallCard.astro in the components directory
-4.2. Define the component interface with props (title, description, image, slug)
-4.3. Set up the HTML structure for the tall card layout
-4.4. Style the component to span 2 columns and 4 rows
-4.5. Adjust image display for tall format
-4.6. Add hover effects that match existing cards
+X 4.1. Create a new file TallCard.astro in the components directory
+X 4.2. Define the component interface with props (title, description, image, slug)
+X 4.3. Set up the HTML structure for the tall card layout
+X 4.4. Style the component to span 2 columns and 4 rows
+X 4.5. Adjust image display for tall format
+X 4.6. Add hover effects that match existing cards
 
 5. Update Layout
 5.1. Update the first row to remain the same
