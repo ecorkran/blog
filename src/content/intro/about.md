@@ -1,13 +1,12 @@
 ---
 title: "About Me"
-description: "A brief introduction"
+description: ""
 ---
 
-### Hello there!
-I'm Erik Corkran, a software developer and technology enthusiast. This blog is where I share my thoughts, projects, and experiences in the tech world.
+I’m exploring the cutting edge of AI to push past basic automation, creating powerful software for everything from financial market insights to action-packed games—and even this website. 
 
-### What I Do
-I work with various technologies including Python, JavaScript, and cloud platforms. I'm particularly interested in AI, web development, and creating efficient, user-friendly applications.
+I’m open to part-time or contract roles where I can help companies leverage AI effectively, especially in fintech or innovative engineering projects.
 
 ### Connect
-Feel free to reach out if you have questions or just want to chat about technology!
+Feel free to reach out if you have questions or just want to chat about technology.
+
