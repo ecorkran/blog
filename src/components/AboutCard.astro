@@ -68,10 +68,10 @@ const { Content } = await aboutEntry.render();
       </a>
       <a
         id="email-link"
-        href="#"
+        href="mailto:erik@erikcorkran.com"
         aria-label="Email"
         class="icon-link"
-        onclick="assembleEmail(event)"
+        onclick="assembleEmail()"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -222,8 +222,7 @@ const { Content } = await aboutEntry.render();
   }
 </style>
 <script>
-  function assembleEmail(e) {
-    e.preventDefault();
+  function assembleEmail() {
     const user = 'erik';
     const domain = 'erikcorkran.com';
     window.location.href = `mailto:${user}@${domain}`;
