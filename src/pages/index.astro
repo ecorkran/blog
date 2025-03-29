@@ -60,26 +60,13 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
     />
   )}
   
-  <!-- Remaining posts follow a pattern -->
-  {posts.slice(4).map((post, index) => {
-    // Every 3rd post gets a TextCard, others get BentoCard
-    if (index % 3 === 0) {
-      return (
-        <TextCard
-          title={post.data.title}
-          subtitle={post.data.description}
-          slug={post.slug}
-        />
-      );
-    } else {
-      return (
-        <BentoCard
-          title={post.data.title}
-          description={post.data.description}
-          image={post.data.image}
-          slug={post.slug}
-        />
-      );
-    }
-  })}
+  {posts.length > 4 && (
+    <WideCard
+      title={posts[4].data.title}
+      description={posts[4].data.description}
+      image={posts[4].data.image}
+      slug={posts[4].slug}
+    />
+  )}
+
 </Layout>
