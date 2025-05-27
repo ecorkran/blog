@@ -1,11 +1,8 @@
-```yaml
 ---
 title: "Running Multiple MCP Servers on Docker + Windsurf"
-date: 2025-05-27
 description: "Weekend notes on MCP, supergateway, socat sandbox escapes, and Smithery. Copy-paste Docker commands included."
-tags: [MCP, Docker, AI-tools]
+pubDate: 2025-05-27
 ---
-```
 
 # MCP Notes – Working Draft
 
