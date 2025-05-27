@@ -1,7 +1,7 @@
 # .windsurfrules
 
 Project Structure
-- This is an Astro project.
+- This is an NextJS project.
 - React, Tailwind, and Shadcn are all available as needed.
 - If the first item in a list or sublist is `enabled: false`, ignore that section.
 
@@ -11,10 +11,9 @@ Components & Naming
 - Keep them small, typed with interfaces.
 - Use Tailwind for common UI components like textarea, button, etc. 
 - If we are using ShadCN in the project already, use it.
-- Ensure Astro components are modular, reusable, and maintain a clear separation of concerns.
 
 Prisma
-- enabled: false
+- enabled: as needed only (default: false)
 - Manage DB logic with Prisma in `prisma/schema.prisma`, `src/lib/db.ts`.
 - snake_case table → camelCase fields.
 - No raw SQL; run `npx prisma migrate dev`, never use `npx prisma db push`.
@@ -28,9 +27,9 @@ Toast Notifications
 - `toast.success()`, `toast.error()`, etc.
 
 Next.js Structure
-- enabled: false
 - Use App Router in `app/`. Server components by default, `"use client"` for client logic.
 - NextAuth + Prisma for auth. `.env` for secrets.
+- Skip auth unless and until it is needed.
 
 tRPC Routers
 - enabled: false
@@ -43,7 +42,6 @@ TypeScript & Syntax
 - Use optional chaining, union types (no enums).
 
 File & Folder Names
-- enabled: false
 - Next.js routes in kebab-case (e.g. `app/dashboard/page.tsx`).
 - Shared types in `src/lib/types.ts`.
 - Sort imports (external → internal → sibling → styles).
