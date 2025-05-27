@@ -6,7 +6,9 @@ pubDate: 2025-05-27
 
 # MCP Notes – Working Draft
 
-Took the three‑day weekend to play with MCP servers, Docker and Windsurf. These are the raw notes I captured between family time and hacking. They’re rough but runnable and might save you the same rabbit‑holes I fell into.
+Took the three‑day weekend to play with MCP servers, Docker and Windsurf. These are the raw notes I captured between family time and hacking. They’re rough but runnable and might save you the same rabbit‑holes I fell into.  Includes information on LAN sharing, proxies, bridging, and https://smithery.ai.
+
+
 
 ## Overview
 
