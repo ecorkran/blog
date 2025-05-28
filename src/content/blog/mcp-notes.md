@@ -1,22 +1,19 @@
 ---
 title: "Running Multiple MCP Servers on Docker + Windsurf"
 description: "Weekend notes on MCP, supergateway, socat sandbox escapes, and Smithery. Copy-paste Docker commands included."
+image: "/image/mcp-notes-1.jpg"
 pubDate: 2025-05-27
 ---
 
-# MCP Notes – Working Draft
+## MCP Notes – Working Draft
 
-Took the three‑day weekend to play with MCP servers, Docker and Windsurf. These are the raw notes I captured between family time and hacking. They’re rough but runnable and might save you the same rabbit‑holes I fell into.  Includes information on LAN sharing, proxies, bridging, and https://smithery.ai.
+### Overview
+These are the raw notes on MCP servers I captured between family time and hacking over the past few days. They’re rough but runnable and might save you the same rabbit‑holes I fell into.  Includes information on LAN sharing, proxies, bridging, and https://smithery.ai.
 
 
+### MCP Server Types
 
-## Overview
-
-Goal: connect GitHub MCP to Windsurf and learn how to run MCP servers from different clients (Windsurf, Claude Desktop, ChatGPT, etc.).  Added bonus: figure out LAN‑wide sharing and sandbox escapes without losing the plot.
-
-## MCP Server Types
-
-Two basic flavours:
+Two basic flavors:
 
 1. **Local / stdio** – runs on the same machine; easiest via Docker.
 2. **Remote / SSE** – reachable over HTTP(S); can be LAN or public.
@@ -25,7 +22,7 @@ Docker + `supergateway` covers the local→SSE bridge nicely.
 
 ---
 
-## Finding & Running MCP Servers
+### Finding & Running MCP Servers
 
 | Server                | Where to get it                                                                                                                                      | Why it matters                                                |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -34,7 +31,7 @@ Docker + `supergateway` covers the local→SSE bridge nicely.
 | **Filesystem MCP**    | [https://github.com/modelcontextprotocol/servers/tree/HEAD/src/filesystem](https://github.com/modelcontextprotocol/servers/tree/HEAD/src/filesystem) | Lets an AI traverse a directory as context.                   |
 | **Registry / search** | [https://smithery.ai](https://smithery.ai)                                                                                                           | Directory + installer for everything MCP‑related.             |
 
-### Quick Docker commands (copy‑paste ready)
+#### Quick Docker commands (copy‑paste ready)
 
 **Token/secrets reminder** – Hard‑coding tokens in the `docker run` line works for first tests but isn’t safe for anything else. Drop a `.env` file next to your compose file, use `--env-file`, or at least export the token in your shell (`export GITHUB_PERSONAL_ACCESS_TOKEN=…`) so it doesn’t land in shell history.
 
@@ -78,11 +75,11 @@ docker run -i --rm -p 8011:8000 \
 
 ---
 
-## Windsurf: auto‑run vs client‑only config
+### Windsurf: auto‑run vs client‑only config
 
 Windsurf can **start** an MCP for you (auto‑run) *or* just **connect** to one you already launched (client config).
 
-### Auto‑run entry (spawns container on demand)
+#### Auto‑run entry (spawns container on demand)
 
 ```json
 "github-local": {
@@ -99,7 +96,7 @@ Windsurf can **start** an MCP for you (auto‑run) *or* just **connect** to one 
 
 *Windsurf launches this when you pick the server in the UI. SSE path is implicit (`http://localhost:9000/sse`).*
 
-### Plain client configuration (server already running)
+#### Plain client configuration (server already running)
 
 Edit or create `mcp_config.json`:
 
@@ -117,7 +114,7 @@ Edit or create `mcp_config.json`:
 
 ---
 
-## Sandbox gotcha & the socat trick
+### Sandbox issue & socat workaround
 
 Windsurf’s Mac build ships with a hardened network sandbox: only `localhost` is allowed.  If your MCP runs on another box (or even a LAN IP on the same box when Docker uses host‑network), you’ll see "no route to host".
 
@@ -132,7 +129,7 @@ Now point Windsurf at `http://localhost:9000/sse` and the sandbox is happy.  (Li
 
 ---
 
-## Transport Helpers (Why they exist)
+### Transport Helpers (Why they exist)
 
 | Tool             | What it solves                                                                                                                                       | Notes                                                    |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
@@ -142,7 +139,7 @@ Now point Windsurf at `http://localhost:9000/sse` and the sandbox is happy.  (Li
 
 *(Leaving mcp‑remote here for historical context; you probably don’t need it.)*
 
-### mcp‑proxy quick demo
+#### mcp‑proxy quick demo
 
 ```sh
 npx -y mcp-proxy http://localhost:8010/sse http://localhost:8011/sse
@@ -151,7 +148,7 @@ npx -y mcp-proxy http://localhost:8010/sse http://localhost:8011/sse
 
 ---
 
-## Smithery – backgrounder
+### Smithery – background
 
 Smithery is a **community‑run registry** + CLI that discovers, installs, and updates MCP servers/plugins.  Think `npm` meets Homebrew for MCP.
 
@@ -166,14 +163,14 @@ npx -y @smithery/cli install mcp-proxy --client claude
 
 ---
 
-## Using MCP Servers from Clients
+### Using MCP Servers from Clients
 
-### Claude Desktop – where the knobs live
+#### Claude Desktop – where the knobs live
 
 * **Settings → Integrations → MCP Servers** lists everything; toggle on/off.
 * Hidden **Settings → Developer** (hold ⌥/Alt while opening) shows raw JSON for backup or manual edits.
 
-### ChatGPT Desktop (Electron build) – quick shim
+#### ChatGPT Desktop (Electron build) – quick shim
 
 Set an environment variable **before** launching:
 
@@ -189,7 +186,7 @@ windsurf --mcp-server http://localhost:8010/sse
 
 ---
 
-## Natural‑language Tricks
+### Natural‑language Tricks
 
 Try these once connected:
 
@@ -198,7 +195,7 @@ Try these once connected:
 
 ---
 
-## Still on the backlog
+### Still on the backlog
 
 * Clear recipe for multi‑client access to a shared LAN server (Docker network or reverse proxy?).
 * Better error‑handling when bridging GitHub MCP through proxies (rate‑limit, SSE dropouts).
