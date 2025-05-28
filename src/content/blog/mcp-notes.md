@@ -107,16 +107,16 @@ _Use this for a remote or LAN‑hosted server. On macOS you’ll need the socat 
 
 ---
 
-### Sandbox gotcha & the socat trick
+### Sandbox issue & socat workaround
 
-Windsurf’s Mac build is sandboxed to **localhost** only. If your server lives on another machine—or Docker maps it to the host’s LAN IP—you’ll hit “no route to host.”
+Windsurf's MacOS build ships with a hardened network sandbox: only localhost or external addresses are allowed. If your MCP runs on a LAN box (or even a LAN IP on the same box when Docker uses host‑network), you'll see "no route to host".
 
 ```sh
 socat TCP-LISTEN:9000,bind=127.0.0.1,reuseaddr,fork \
       TCP:192.168.1.95:8010
 ```
 
-Then point Windsurf at `http://localhost:9000/sse`. Linux users can simply launch Windsurf with `--no-sandbox`.
+Then point Windsurf at `http://localhost:9000/sse`. Linux users should be able to launch Windsurf with `--no-sandbox`, though this is not recommended practice.
 
 ---
 
@@ -143,6 +143,8 @@ You will probably need to specify the full path to mcp-proxy as shown below, esp
 }
 ```
 
+View settings in Claude Desktop > Settings > Integrations.  Edit directly in `claude-desktop-config.json`.
+
 _Claude now connects via the proxy. Windsurf still needs the socat workaround if the server lives off‑localhost._
 
 ---
@@ -158,12 +160,6 @@ Get started at https://smithery.ai
 
 ---
 
-### Natural‑language tricks
-- “List open issues for manta‑digital/manta‑templates.”
-- “Find files containing TODO in /projects/myrepo.”
-    
-
----
 
 ### Still on the backlog
 - Wrap MCP with ChatGPT tool calling for use inOpenAI desktop app.
