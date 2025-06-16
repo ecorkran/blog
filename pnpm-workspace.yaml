@@ -1,0 +1,6 @@
+ignoredBuiltDependencies:
+  - chromedriver
+  - unrs-resolver
+onlyBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - sharp
