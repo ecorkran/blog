@@ -1,7 +1,7 @@
 ---
 title: "GPT-4 and Gemini Advanced: Initial Comparison"
 description: "This article provides an initial comparison of their performance across technical requests, mathematical modeling, and web service integration, based on specific examples and general observations."
-image: "https://picsum.photos/800/600?random=6"
+image: "/image/gpt4g-math-gpt-4.png"
 pubDate: 2024-02-16
 ---
 
