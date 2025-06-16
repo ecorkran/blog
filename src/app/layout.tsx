@@ -13,23 +13,23 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://templates.manta.digital';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://erikcorkran.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'manta.digital Templates',
-  description: 'Templates, layouts, and UI components created with the included AI Project Guides',
+  title: 'Erik Corkran',
+  description: 'Personal blog and thoughts on technology, AI, and software development',
   openGraph: {
-    title: 'manta.digital Templates',
-    description: 'Templates, layouts, and UI components created with the included AI Project Guides',
+    title: 'Erik Corkran',
+    description: 'Personal blog and thoughts on technology, AI, and software development',
     url: '/',
-    siteName: 'manta.digital Templates',
+    siteName: 'Erik Corkran',
     images: [
       {
-        url: 'https://templates.manta.digital/image/opengraph-image.jpg',
+        url: '/opengraph-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'manta.digital Templates OG Image',
+        alt: 'Erik Corkran Blog',
       },
     ],
     locale: 'en_US',

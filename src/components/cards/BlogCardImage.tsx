@@ -29,7 +29,7 @@ export const BlogCardImage: React.FC<BlogCardImageProps> = ({
   category,
   author,
   textColorClassName = 'text-white', // Default to white text
-  overlayClassName = 'bg-gradient-to-t from-black/70 via-black/50 to-black/25',
+  overlayClassName = 'bg-gradient-to-t from-black/50 via-black/35 to-black/25',
   imageMaxHeight, // Destructured, not used by this component directly
   className,
   priority = false,
