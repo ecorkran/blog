@@ -38,7 +38,7 @@ export const BlogCardImage: React.FC<BlogCardImageProps> = ({
   const formattedDate = date ? formatDate(date) : null;
 
   const cardContent = (
-    <div className={cn('relative h-full w-full flex flex-col justify-end p-6 md:p-8', textColorClassName)}>
+    <div className={cn('relative h-full w-full flex flex-col justify-center py-8 px-6 md:px-8 gap-y-4', textColorClassName)}>
       {/* Overlay for text readability */}
       <div className={cn('absolute inset-0 z-0', overlayClassName)} />
 
@@ -64,6 +64,7 @@ export const BlogCardImage: React.FC<BlogCardImageProps> = ({
 
   return (
     <BaseCard 
+      size="sm"
       className={cn(
         'relative overflow-hidden h-full w-full group',
         imageMaxHeight ? imageMaxHeight : 'min-h-[280px] md:min-h-[360px]',
@@ -79,7 +80,7 @@ export const BlogCardImage: React.FC<BlogCardImageProps> = ({
         fill
         style={{ objectFit: 'cover' }}
         sizes="(max-width: 768px) 100vw, 400px"
-        className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-105"
+        className="absolute inset-0 z-0 blur-[2px] transition-transform duration-300 group-hover:scale-105"
         priority={!!priority}
       />
       {/* 25% black dim overlay above the image but below text overlay */}

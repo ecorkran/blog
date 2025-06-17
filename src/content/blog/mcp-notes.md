@@ -1,5 +1,5 @@
 ---
-title: "Shared MCP Servers on Docker + Windsurf and Claude"  
+title: "Shared MCP Servers with Windsurf and Claude"  
 description: "Weekend notes on MCP, supergateway, socat sandbox escapes, and Smithery. Copy‑paste Docker commands included."  
 image: "/image/mcp-notes-1.jpg"  
 pubDate: 2025-05-27

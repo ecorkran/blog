@@ -1,18 +1,17 @@
 {
-  "name": "manta-template-next",
+  "name": "erikcorkran-blog",
   "version": "0.5.0",
-  "private": false,
-  "description": "Opinionated Next 15 + Tailwind 4 + ShadCN starter with masonry & bento grids",
+  "private": true,
+  "description": "Erik Corkran's personal blog - thoughts on technology, AI, and software development",
   "author": "Erik Corkran",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/manta-digital/manta-templates",
-    "directory": "nextjs"
+    "url": "https://github.com/ecorkran/erikcorkran"
   },
-  "homepage": "https://github.com/manta-digital/manta-templates/tree/main/nextjs",
+  "homepage": "https://github.com/ecorkran/erikcorkran",
   "bugs": {
-    "url": "https://github.com/manta-digital/manta-templates/issues"
+    "url": "https://github.com/ecorkran/erikcorkran/issues"
   },
   "scripts": {
     "dev": "next dev --turbopack",
